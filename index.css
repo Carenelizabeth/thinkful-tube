@@ -2,6 +2,8 @@
 
 body{
   font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #77AD9E;
+  margin: 0;
 }
 
 p{
@@ -18,6 +20,7 @@ h1{
   color: white;
   font-family: 'Rammetto One', cursive;
   text-align: center;
+  margin-top: 0;
 }
 
 label{
@@ -27,7 +30,7 @@ label{
 form{
   max-width: 50%;
   margin: 0 auto;
-  background-color: #5CAD9B;
+  background-color: #386B5F;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -46,36 +49,37 @@ input{
   line-height: 30px;
   width: 50%;
   padding-left: 10px;
+  font-size: 16;
 }
 
 button{
-  width: 100px;
+  width: 160px;
+  height: 30px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.results{
-  background-color: #0B4CA1;
+.search-title{
+  background-color: rgba(6, 43, 92, .8);
+  max-width: 50%;
+  margin: 50px auto 30px auto;
 }
 
 .each-result img{
   width: 100%;
+  border: solid 1px white;
 }
 
 .each-result{
   border: solid 1px #031333;
-  background-color: rgba(92, 176, 155, .2);
+  background-color: rgba(6, 43, 92, .8);
   width: 20%;
   padding: 10px;
   margin: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.js-search-results h2{
-  background-color: #0B4CA1;
-  margin-top: 30px;
+  color: white;
 }
 
 .search-thumbnails{
@@ -94,7 +98,7 @@ iframe{
 .channel-link{
   font-weight: bold;
   text-decoration: none;
-  color: #0B4CA1;
+  color: white;
 }
 
 .lightbox{
