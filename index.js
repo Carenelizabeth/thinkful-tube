@@ -49,10 +49,7 @@ function handleSubmit(){
 
 function handleLightbox(){
   $('.js-search-results').on('click', '.lightboxHandler', function(event) {
-    let title = $(event.currentTarget).data("title");
     let videoId = $(event.currentTarget).data("videoid");
-
-    $('.lightbox-title').html(title);
     $('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
     showLightbox();
   });
