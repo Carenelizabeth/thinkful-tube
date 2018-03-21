@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Rammetto+One" rel="stylesheet">
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>Thinkful Tube</h1>      
+    </header>
+    <main>
+      <form class="js-search-form">
+        <h2>Search for Videos</h2>
+        <label for="query">Search for Videos</label>
+        <input type="text" id="query" class="js-query" placeholder="e.g. circus animals">
+        <button type="submit">Search</button>
+      </form>
+  
+      <div class="js-search-results">
+        <div class="search-title"></div>
+        <div class="search-thumbnails"></div>
+      </div>
+      
+    </main>
+    
+    <div class="lightbox">
+      <h3 class="lightb0x-title"></h3>
+      <iframe class="lightbox-video" src=""></iframe>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
