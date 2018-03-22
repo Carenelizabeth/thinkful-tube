@@ -46,7 +46,7 @@ function handleSubmit(){
 
 function handleLightbox(videoId){
     console.log("Handle lightbox ran");
-    $('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
+    //$('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
     showLightbox();
 }
 
@@ -69,6 +69,16 @@ function hideLightbox(){
   $('.lightbox-video').attr('src', '');
 }
 
+function escKeyHandler(){
+  $(document).on('keyup', function(event){
+    if (event.keyCode == 27){
+      hideLightbox();
+    }
+  });
+}
+
+
 //lightboxHandler();
+escKeyHandler();
 handleSubmit();
 handleCloseLightbox();
