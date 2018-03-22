@@ -11,7 +11,7 @@ p{
 }
 
 header{
-  background-color: #0B4CA1;
+  background-color: #083673;
   padding-left: 20px;
   font-size: 32px;
 }
@@ -91,8 +91,9 @@ iframe{
   width: 100%;
 }
 
-.lightboxHandler p :hover{
-  cursor:pointer;
+.lightboxHandler{
+  color: white;
+  text-decoration: none;
 }
 
 .channel-link{

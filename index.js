@@ -19,14 +19,11 @@ function retrieveDataFromApi(searchTerm, callback){
 }
 
 function renderThumbnails(results){
-  //console.log("Display thumbnails ran");
   return`
     <div class="each-result">
-      <p class="lightboxHandler" data-title="${results.snippet.title}" data-videoid="${results.id.videoId}">${results.snippet.title}
-
-        <img src=${results.snippet.thumbnails.medium.url} alt=${results.snippet.description} class="js-thumb">
-      
-      </p>
+      <a class="lightboxHandler" onclick="handleLightbox('${results.id.videoId}'); return false;" href="#">${results.snippet.title}
+        <img src=${results.snippet.thumbnails.medium.url} alt=${results.snippet.description} class="js-thumb">    
+      </a>
       <a class="channel-link" href="https://www.youtube.com/channel/${results.snippet.channelId}" target="_blank">More from this channel</a>
      </div>`;
 }
@@ -34,7 +31,7 @@ function renderThumbnails(results){
 function displayThumbnails(data){
   const results = data.items.map((item, index) =>
   renderThumbnails(item));
-  $('.search-title').html(`<h2>Results</h2>`);
+  $('.search-title').html(`<h2>Top 5 Results</h2>`);
   $('.search-thumbnails').html(results);
 }
 
@@ -47,16 +44,15 @@ function handleSubmit(){
   });
 }
 
-function handleLightbox(){
-  $('.js-search-results').on('click', '.lightboxHandler', function(event) {
-    let videoId = $(event.currentTarget).data("videoid");
+function handleLightbox(videoId){
+    console.log("Handle lightbox ran");
     $('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
     showLightbox();
-  });
 }
 
 
 function showLightbox(){
+  console.log("show lightbox ran")
   $('.lightbox').addClass('active');
   $('.overlay').addClass('active');
 }
@@ -73,7 +69,18 @@ function hideLightbox(){
   $('.lightbox-video').attr('src', '');
 }
 
+function escKeyHandler(){
+  $(document).on('keyup', function(event){
+    if (event.keyCode == 27){
+      hideLightbox();
+    }
+  });
+}
+
+
 //lightboxHandler();
+escKeyHandler();
 handleSubmit();
-handleLightbox();
 handleCloseLightbox();
+
+//https://www.youtube.com/watch?v=${results.id.videoId}
