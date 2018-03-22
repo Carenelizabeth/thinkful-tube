@@ -19,14 +19,11 @@ function retrieveDataFromApi(searchTerm, callback){
 }
 
 function renderThumbnails(results){
-  //console.log("Display thumbnails ran");
   return`
     <div class="each-result">
-      <p class="lightboxHandler" data-title="${results.snippet.title}" data-videoid="${results.id.videoId}">${results.snippet.title}
-
-        <img src=${results.snippet.thumbnails.medium.url} alt=${results.snippet.description} class="js-thumb">
-      
-      </p>
+      <a onclick="handleLightbox(); return false;" class="lightboxHandler" href="https://www.youtube.com/watch?v=${results.id.videoId}">${results.snippet.title}
+        <img src=${results.snippet.thumbnails.medium.url} alt=${results.snippet.description} class="js-thumb">    
+      </a>
       <a class="channel-link" href="https://www.youtube.com/channel/${results.snippet.channelId}" target="_blank">More from this channel</a>
      </div>`;
 }
@@ -47,16 +44,15 @@ function handleSubmit(){
   });
 }
 
-function handleLightbox(){
-  $('.js-search-results').on('click', '.lightboxHandler', function(event) {
-    let videoId = $(event.currentTarget).data("videoid");
+function handleLightbox(videoId){
+    console.log("Handle lightbox ran");
     $('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
     showLightbox();
-  });
 }
 
 
 function showLightbox(){
+  console.log("show lightbox ran")
   $('.lightbox').addClass('active');
   $('.overlay').addClass('active');
 }
@@ -75,5 +71,4 @@ function hideLightbox(){
 
 //lightboxHandler();
 handleSubmit();
-handleLightbox();
 handleCloseLightbox();
