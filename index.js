@@ -21,7 +21,7 @@ function retrieveDataFromApi(searchTerm, callback){
 function renderThumbnails(results){
   return`
     <div class="each-result">
-      <a onclick="handleLightbox(); return false;" class="lightboxHandler" href="https://www.youtube.com/watch?v=${results.id.videoId}">${results.snippet.title}
+      <a class="lightboxHandler" onclick="handleLightbox('${results.id.videoId}'); return false;" href="#">${results.snippet.title}
         <img src=${results.snippet.thumbnails.medium.url} alt=${results.snippet.description} class="js-thumb">    
       </a>
       <a class="channel-link" href="https://www.youtube.com/channel/${results.snippet.channelId}" target="_blank">More from this channel</a>
@@ -31,7 +31,7 @@ function renderThumbnails(results){
 function displayThumbnails(data){
   const results = data.items.map((item, index) =>
   renderThumbnails(item));
-  $('.search-title').html(`<h2>Results</h2>`);
+  $('.search-title').html(`<h2>Top 5 Results</h2>`);
   $('.search-thumbnails').html(results);
 }
 
@@ -46,7 +46,7 @@ function handleSubmit(){
 
 function handleLightbox(videoId){
     console.log("Handle lightbox ran");
-    //$('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
+    $('.lightbox-video').attr('src', `https://www.youtube.com/embed/${videoId}`);
     showLightbox();
 }
 
@@ -82,3 +82,5 @@ function escKeyHandler(){
 escKeyHandler();
 handleSubmit();
 handleCloseLightbox();
+
+//https://www.youtube.com/watch?v=${results.id.videoId}
